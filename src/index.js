@@ -2,13 +2,22 @@ import React from 'react';
 
 import ReactDOM from 'react-dom';
 
+import SearchBar from './components/search_bar';
+
+const API_KEY = 'AIzaSyAQqdxjykmMOgyIUD18WLGjGANO5KAocRo';
+
 // Create a new component. Component is a function or object that returns some HTML.
 
 //render - place this components html onto the page
 
 const App = () => {
-    // es6 => is identical to function keyword
-    return <div>Hi!</div>
+
+        return (
+            <div>
+                <SearchBar />
+            </div>
+        );
+        //showing searchBar component inside the App component. Now it's like a tree with the top level as App and SearchBar as its child.
 };
 
 // Take this component's generated HTML and put it on the page (in the DOM)
