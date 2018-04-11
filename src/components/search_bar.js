@@ -1,16 +1,31 @@
 import React, { Component } from 'react';
 //same thing as doing: const Component = React.Component;
 
-class SearchBar extends React.Component {
+//Event Handler Using es6
+
+class SearchBar extends Component {
  render() {
-     return <input />;
+     return <input onChange={(event) => console.log(event.target.value)} />;
  }
 }
-//making this a class-based component, this component is now essentially saying to other components that the user just typed and this is what they typed.
-
-//every react component that is created must is class based must have the render method
 
 export default SearchBar;
+
+ //Even Handler without using es6
+
+ // class SearchBar extends Component {
+ //     render() {
+ //         return <input onChange={this.onInputChange}/>;
+ //     }
+ //
+ //    onInputChange(event) {
+ //        console.log(event.target.value);
+ //        console.log(event)
+ //    }
+
+    //the event handler here is defined as a method on the class. (The one without es6.
+
+
 
 
 
