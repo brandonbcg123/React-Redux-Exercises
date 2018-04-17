@@ -11,7 +11,10 @@ class SearchBar extends Component {
  render() {
      return (
          <div>
-     <input onChange={(event) => this.setState({term: event.target.value})} />
+     <input
+         value={this.state.term}
+         //when we tell input that its value is provided by this.state.term, we turn the input into what is called a controlled component. A controlled component has its value set by state, so its value only changes when its state changes.
+         onChange={(event) => this.setState({term: event.target.value})} />
              Value of the input: {this.state.term}
          </div>
      );
