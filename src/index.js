@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {Component} from 'react';
 
 import ReactDOM from 'react-dom';
 
@@ -9,22 +9,32 @@ import SearchBar from './components/search_bar';
 
 const API_KEY = 'AIzaSyAQqdxjykmMOgyIUD18WLGjGANO5KAocRo';
 
-YTSearch({key: API_KEY, term: 'surfboards'}, function(data) {
-    console.log(data);
-});
+
 
 // Create a new component. Component is a function or object that returns some HTML.
 
 //render - place this components html onto the page
 
-const App = () => {
+class App extends Component {
+    constructor(props) {
+        super(props);
 
+        this.state = {videos: [] };
+
+        YTSearch({key: API_KEY, term: 'surfboards'}, (data) => {
+            this.setState({videos: data});
+            console.log(data);
+        });
+    }
+    render() {
         return (
             <div>
-                <SearchBar />
+                <SearchBar/>
             </div>
         );
-        //showing searchBar component inside the App component. Now it's like a tree with the top level as App and SearchBar as its child.
+    }
+
+    //showing searchBar component inside the App component. Now it's like a tree with the top level as App and SearchBar as its child.
 };
 
 // Take this component's generated HTML and put it on the page (in the DOM)
@@ -36,5 +46,5 @@ const App = () => {
 // ReactDOM.render(App);
 //passing a component class, but need to pass a component instance
 
-ReactDOM.render(<App />, document.querySelector('.container'));
+ReactDOM.render(<App/>, document.querySelector('.container'));
 // passing a component instance to ReactDOM.render; the second argument is a reference to an existing DOM node on the page. When you render this component (<App />) I want you to render it, produce some html, and then insert that html into this element that exists in our html document.
