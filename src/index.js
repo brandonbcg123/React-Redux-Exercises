@@ -6,6 +6,8 @@ import YTSearch from 'youtube-api-search';
 
 import SearchBar from './components/search_bar';
 
+import VideoList from './components/video_list';
+
 
 const API_KEY = 'AIzaSyAQqdxjykmMOgyIUD18WLGjGANO5KAocRo';
 
@@ -30,12 +32,14 @@ class App extends Component {
         return (
             <div>
                 <SearchBar/>
+                <VideoList videos={this.state.videos}/>
             </div>
+        // Video List needs to get access to the videos listed on the app state, so for VideoList to reference app we pass the list of videos just by defining a property on the jsx tag. Passing data like this is referred to as passing props. The data that we are passing from app to VideoList videos is referred to as a prop, so this is passing prop videos to VideoList, anytime the app re-renders (like when we setState on the component) VideoList will get the new list as well.
         );
     }
 
     //showing searchBar component inside the App component. Now it's like a tree with the top level as App and SearchBar as its child.
-};
+}
 
 // Take this component's generated HTML and put it on the page (in the DOM)
 
