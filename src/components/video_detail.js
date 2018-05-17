@@ -3,13 +3,16 @@ import React from 'react';
 // const VideoDetail = (props) => {
 
 const VideoDetail = ({video}) => {
+    if(!video){
+        return <div>Loading...</div>
+        //Added a condition that makes sure if someone tries to render VideoDetail and a video is not provided then the page will return a div that says Loading...
+        //If a video is provided then the embed, title, and description from the markup shown below will be displayed.
+    }
     const videoId = video.id.videoId;
-
-    //This is with vanilla JavaScript: const url = 'https://www.youtube.com/embed/' + videoId;
 
     //This is with ES6:
     const url = `https://www.youtube.com/embed/${videoId}`;
-    // This will come up with the URL for videos as long as the videoId is retrieved
+    // This will come up with the URL for videos as long as the videoId is retrieved.
     // The iframe points to this URL showing a YouTube video player inside of the application.
 
     return (

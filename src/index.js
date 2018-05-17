@@ -8,6 +8,8 @@ import SearchBar from './components/search_bar';
 
 import VideoList from './components/video_list';
 
+import VideoDetail from './components/video_detail';
+
 
 const API_KEY = 'AIzaSyAQqdxjykmMOgyIUD18WLGjGANO5KAocRo';
 
@@ -32,6 +34,7 @@ class App extends Component {
         return (
             <div>
                 <SearchBar/>
+                <VideoDetail video={this.state.videos[0]}/>
                 <VideoList videos={this.state.videos}/>
             </div>
         // Video List needs to get access to the videos listed on the app state, so for VideoList to reference app we pass the list of videos just by defining a property on the jsx tag. Passing data like this is referred to as passing props. The data that we are passing from app to VideoList videos is referred to as a prop, so this is passing prop videos to VideoList, anytime the app re-renders (like when we setState on the component) VideoList will get the new list as well.
