@@ -3,7 +3,13 @@ import VideoListItem from './video_list_item';
 
 const VideoList = (props) => {
    const videoItems = props.videos.map((video) => {
-        return <VideoListItem key={video.etag} video = {video} />
+        return (
+            <VideoListItem
+                onVideoSelect={props.onVideoSelect}
+                //Taking the prop that is coming from App and passing it down to VideoListItem.
+                key={video.etag}
+                video = {video} />
+        );
        //etag is a unique identifier that can be used as a key for each video that would be give a unique key for each element in the Videoitems array. This helps React identify which id (video) to change.
         //for each element of videos we have a function that gets called with a single video and return a VideoListItem and pass the video as a property named video.
     });
