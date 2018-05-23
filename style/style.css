@@ -4,7 +4,12 @@
 }
 
 .search-bar input {
-    width: 75%;
+    width: 80%;
+}
+
+/*Space between search word and search bar*/
+.search-bar span {
+    padding-right: 10px;
 }
 
 /*thumbnails on the left-hand side*/
@@ -24,8 +29,11 @@ img.media-object {
     cursor: pointer;
 }
 
-list-group-item:hover {
+/*Use pseudo-selector of hover to highlight the background color of each video when the cursor is on a specific video*/
+li.list-group-item:hover {
  background-color: #8d8d8d;
 }
 
-/*Use pseudo-selector of hover to highlight the background color of each video when the cursor is on a specific video*/
+div.details {
+    margin-bottom: 2%;
+}
