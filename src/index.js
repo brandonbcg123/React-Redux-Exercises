@@ -48,6 +48,7 @@ class App extends Component {
         return (
             <div>
                 <SearchBar onSearchTermChange={term => this.videoSearch(term)}/>
+                {/*When SearchBar calls onSearchTermChange it will do so with a search 'term' that will be sent right into this.VideoSearch, in which the term will conduct the YTSearch for it.*/}
                 <VideoDetail video={this.state.selectedVideo}/>
                 <VideoList
                     onVideoSelect={selectedVideo => this.setState({selectedVideo})}
