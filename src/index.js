@@ -27,8 +27,12 @@ class App extends Component {
             selectedVideo: null
             //start off as null because there is not not a selected video to start with.
         };
+        this.videoSearch('surfboards');
+        //for the initial search
+    }
 
-        YTSearch({key: API_KEY, term: 'surfboards'}, (videos) => {
+    videoSearch(term) {
+        YTSearch({key: API_KEY, term: term}, (videos) => {
             this.setState({
                 videos: videos,
                 //sets list of videos
@@ -39,10 +43,11 @@ class App extends Component {
         });
     }
 
+
     render() {
         return (
             <div>
-                <SearchBar/>
+                <SearchBar onSearchTermChange={term => this.videoSearch(term)}/>
                 <VideoDetail video={this.state.selectedVideo}/>
                 <VideoList
                     onVideoSelect={selectedVideo => this.setState({selectedVideo})}
